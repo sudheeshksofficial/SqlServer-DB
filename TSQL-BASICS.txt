@@ -1,0 +1,367 @@
+SQL SERVER NOTES
+
+--DATA TYPES
+INT,NVARCHAR(N),VARCHAR(N),CHAR,NCHAR(N),DATE,DATETIME,FLOAT,DECIMAL(TOTALDIGITS,DIGIT-CAN-STORE-AFTER-POINT),GUID
+
+--note : NVARCHAR and NCHAR can hold special characters with text
+
+--CONSTRAINTS
+
+PRIMARY KEY,FOREIGN key,NOT NULL, UNIQUE,CHECK(column>0),DEFAULT
+
+note : department_id INT FOREIGN key REFERENCES Department_table(id)
+
+
+CREATE TABLE OP.PATIENTS (
+patient_id INT PRIMARY KEY,
+patient_name Varchar(50),
+age int,
+place varchar,
+patient_dob date,
+desease_id int,
+doctor_id int
+);
+
+ALTER TABLE [SQL_LearnSpace].[OP].[PATIENTS]
+ALTER COLUMN [place] VARCHAR(50); -- or a length that suits your data
+
+ALTER TABLE [SQL_LearnSpace].[OP].[PATIENTS]
+ALTER COLUMN [desease_id] VARCHAR(10);
+
+ALTER TABLE [SQL_LearnSpace].[OP].[PATIENTS]
+ALTER COLUMN [doctor_id] VARCHAR(10);
+
+
+INSERT INTO [SQL_LearnSpace].[OP].[PATIENTS] (
+    [patient_id], [patient_name], [age], [place], [patient_dob], [desease_id], [doctor_id]
+)
+VALUES
+(101, 'Rani Kumar', 34, 'Chennai', '1991-05-12', 'D001', 'DR005'),
+(102, 'Arjun Singh', 58, 'Delhi', '1967-11-03', 'D007', 'DR002'),
+(103, 'Meena Iyer', 22, 'Bangalore', '2003-04-21', 'D003', 'DR004'),
+(104, 'Faizal Khan', 45, 'Hyderabad', '1980-09-18', 'D005', 'DR001'),
+(105, 'Kavitha Das', 39, 'Mumbai', '1986-12-06', 'D006', 'DR003'),
+(106, 'Vikram Patel', 51, 'Pune', '1974-08-22', 'D002', 'DR005'),
+(107, 'Sneha Reddy', 28, 'Vizag', '1997-02-15', 'D004', 'DR001'),
+(108, 'Manish Roy', 60, 'Kolkata', '1965-01-19', 'D008', 'DR006'),
+(109, 'Tara Nair', 36, 'Coimbatore', '1989-07-30', 'D001', 'DR004'),
+(110, 'Rahul Joshi', 42, 'Thane', '1983-03-12', 'D005', 'DR003'),
+(111, 'Divya Sharma', 26, 'Jaipur', '1999-06-25', 'D006', 'DR002'),
+(112, 'Amitabh Rao', 33, 'Nagpur', '1992-12-18', 'D003', 'DR001'),
+(113, 'Neha Pillai', 48, 'Kochi', '1977-11-05', 'D004', 'DR006'),
+(114, 'Sarita Ghosh', 30, 'Bhubaneswar', '1995-04-01', 'D007', 'DR005'),
+(115, 'Zainab Sheikh', 50, 'Agra', '1975-10-10', 'D002', 'DR004'),
+(116, 'Raghav Verma', 44, 'Madurai', '1981-09-22', 'D008', 'DR003'),
+(117, 'Nisha Bhat', 37, 'Trichy', '1988-05-09', 'D006', 'DR001'),
+(118, 'Ajay Kapoor', 29, 'Gwalior', '1996-07-11', 'D005', 'DR002'),
+(119, 'Swetha Menon', 41, 'Calicut', '1984-02-28', 'D003', 'DR006'),
+(120, 'Mohit Jain', 59, 'Kanpur', '1966-08-03', 'D001', 'DR004'),
+(121, 'Preeti Singh', 35, 'Nashik', '1990-09-17', 'D004', 'DR001'),
+(122, 'Karan Yadav', 47, 'Vellore', '1978-01-26', 'D008', 'DR005'),
+(123, 'Anjali Desai', 32, 'Surat', '1993-10-14', 'D002', 'DR003'),
+(124, 'Rajeev Mishra', 53, 'Patna', '1972-06-21', 'D006', 'DR004'),
+(125, 'Latha Ravindran', 40, 'Rajkot', '1985-03-27', 'D005', 'DR002'),
+(126, 'Yusuf Khan', 25, 'Amritsar', '2000-12-02', 'D007', 'DR006'),
+(127, 'Smita Pawar', 43, 'Udaipur', '1982-11-08', 'D003', 'DR001'),
+(128, 'Bhavana Ramesh', 38, 'Hubli', '1987-07-06', 'D001', 'DR004'),
+(129, 'Gaurav Vyas', 56, 'Jodhpur', '1969-05-13', 'D004', 'DR003'),
+(130, 'Ritika Chopra', 31, 'Noida', '1994-09-01', 'D002', 'DR002');
+
+
+
+update OP.PATIENTS set place = 'chennai' where patient_id in (select p.patient_id from OP.PATIENTS p where p.doctor_id = 'DR001');
+
+
+	Insert into SQL_LearnSpace.OP.PATIENTS (patient_id,patient_name,age,place,patient_dob,desease_id,doctor_id) values
+	(131,'Ridhi dogra',33,'madurai','12-24-2024','D008','D004');
+
+	update SQL_LearnSpace.OP.PATIENTS set age = 44 where patient_name like 'ridhi%';
+	
+	Create table OP.Desease (Desease_Id INT Primary key,
+	Disease_Name varchar(50),
+	DaystoCure int);
+	
+alter table [SQL_LearnSpace].[OP].[Disease] alter column Desease_Id nvarchar(10);
+
+alter table [SQL_LearnSpace].[OP].[Disease] drop constraint PK__Disease__041424ECA3E3B675;
+
+ALTER TABLE [SQL_LearnSpace].[OP].[Disease]
+ALTER COLUMN Desease_Id NVARCHAR(10) NOT NULL;
+
+ALTER TABLE [SQL_LearnSpace].[OP].[Disease]
+ADD CONSTRAINT PK_Disease_Desease_Id PRIMARY KEY (Desease_Id);
+
+
+INSERT INTO [SQL_LearnSpace].[OP].[Disease] (
+    [Desease_Id], [Disease_Name], [DaystoCure]
+)
+VALUES
+('D001', 'Hypertension', 30),
+('D002', 'Diabetes', 60),
+('D003', 'Asthma', 45),
+('D004', 'Arthritis', 90),
+('D005', 'Thyroid Disorder', 40),
+('D006', 'Migraine', 25),
+('D007', 'Anemia', 35),
+('D008', 'Depression', 75);
+
+select min(pt.age) average_af_age,ds.Disease_Name from 
+SQL_LearnSpace.OP.PATIENTS pt inner join SQL_LearnSpace.OP.Disease ds on
+pt.desease_id = ds.Desease_Id where pt.place = 'chennai' group by ds.Disease_Name;
+
+select count(*) number_of_patient,ds.Disease_Name from SQL_LearnSpace.OP.PATIENTS pt inner join
+SQL_LearnSpace.OP.Disease ds on pt.desease_id = ds.Desease_Id 
+where pt.place = 'chennai' group by ds.Disease_Name
+having count(*) >= 2;
+
+Select ds.Disease_Name from SQL_LearnSpace.OP.PATIENTS pt 
+inner join SQL_LearnSpace.OP.Disease ds on pt.desease_id = ds.Desease_Id
+group by ds.Disease_Name having AVG(age) > 40;
+
+Select ds.Disease_Name,pt.place from SQL_LearnSpace.OP.PATIENTS pt 
+inner join SQL_LearnSpace.OP.Disease ds on pt.desease_id = ds.Desease_Id
+group by pt.place,ds.Disease_Name having AVG(age) > 20;
+
+
+
+SELECT ds.Disease_Name, pt.place
+FROM SQL_LearnSpace.OP.PATIENTS pt
+JOIN SQL_LearnSpace.OP.Disease ds 
+    ON pt.desease_id = ds.Desease_Id
+WHERE pt.place IN (
+    SELECT place
+    FROM SQL_LearnSpace.OP.PATIENTS
+    GROUP BY place
+    HAVING AVG(age) > 40
+)
+GROUP BY ds.Disease_Name, pt.place;
+
+
+CREATE NONCLUSTERED INDEX idx_name ON Employees(Name);
+
+
+Create procedure GetPatientNames
+As --after As will consider as when the procudure name is called this part will execute
+-- so its like AS keyword in sql code code after this will named AS name given procedurename
+Begin
+	select patient_name from SQL_LearnSpace.OP.PATIENTS;
+End;
+
+--will be executed by using exec GetPatientNames
+
+CREATE PROCEDURE OP.GetPersonByDisease
+ @diseaseInput Nvarchar(50)
+AS
+BEGIN
+	select * from SQL_LearnSpace.OP.PATIENTS pt inner join
+	SQL_LearnSpace.OP.Disease ds  on pt.desease_id = ds.Desease_Id 
+	where ds.Disease_Name = @diseaseInput;
+END
+
+--  exec SQL_LearnSpace.[OP].[GetPersonByDisease] @diseaseInput = 'Diabetes';
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+Create procedure OP.PatientByDocID
+@doc_id varchar(20),
+@patient_name varchar(50) output
+AS
+Begin
+	select @patient_name = patient_name from SQL_LearnSpace.OP.PATIENTS where doctor_id = @doc_id;
+End
+
+declare @gotval nvarchar(50)
+
+exec SQL_LearnSpace.OP.PatientByDocID @doc_id = 'DR001', @patient_name = @gotval output;
+
+
+select @gotval As receivedNames
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+In SQL Server, **stored procedures** can accept **input** and **output parameters**. These parameters allow you to pass data into the stored procedure and also retrieve data back from it.
+
+### Basic Structure of Stored Procedure with Input and Output Parameters
+
+#### 1. **Input Parameters**
+
+* These parameters are used to pass values into the stored procedure.
+
+#### 2. **Output Parameters**
+
+* These parameters are used to return values back to the calling code or script.
+
+---
+
+### 🔹 **Creating a Stored Procedure with Input and Output Parameters**
+
+Let’s say we want to create a stored procedure that calculates the total price of an order and returns it as an output parameter, based on the quantity of items and the price per item (which we provide as input parameters).
+
+#### **SQL Syntax Example:**
+
+```sql
+CREATE PROCEDURE CalculateTotalPrice
+    @Quantity INT,                  -- Input Parameter
+    @PricePerItem DECIMAL(10, 2),    -- Input Parameter
+    @TotalPrice DECIMAL(10, 2) OUTPUT  -- Output Parameter
+AS
+BEGIN
+    -- Logic to calculate total price
+    SET @TotalPrice = @Quantity * @PricePerItem;
+
+    -- Optionally, you can include other logic here (e.g., validation, logging, etc.)
+
+    -- Return the calculated total price in the output parameter
+END
+```
+
+### **Explanation:**
+
+* `@Quantity` and `@PricePerItem` are **input parameters**; you’ll pass values for them when calling the procedure.
+* `@TotalPrice` is an **output parameter** that will store the result of the calculation (i.e., the total price), and you’ll retrieve it when the procedure completes.
+
+---
+
+### 🔹 **Executing the Stored Procedure with Input and Output Parameters**
+
+When executing the procedure, you need to provide values for the input parameters, and you will also need to declare a variable to receive the output.
+
+```sql
+DECLARE @CalculatedPrice DECIMAL(10, 2);  -- Declare a variable to store the output
+
+-- Execute the stored procedure with input parameters, and capture the output
+EXEC CalculateTotalPrice 
+    @Quantity = 5,               -- Input: Number of items
+    @PricePerItem = 10.00,       -- Input: Price per item
+    @TotalPrice = @CalculatedPrice OUTPUT;  -- Output: The result of calculation
+
+-- After execution, you can use the output parameter
+SELECT @CalculatedPrice AS TotalOrderPrice;
+```
+
+### **Explanation:**
+
+1. **Declaring the Output Variable**:
+
+   * You declare a variable (`@CalculatedPrice`) to store the value of the output parameter.
+2. **Executing the Stored Procedure**:
+
+   * The `EXEC` command is used to call the stored procedure and pass the values for the input parameters.
+   * The `OUTPUT` keyword specifies that `@TotalPrice` is an output parameter and will hold the calculated total price.
+3. **Accessing the Output**:
+
+   * After the procedure is executed, you can access the value of the output parameter (`@CalculatedPrice`) and use it as needed (e.g., in a `SELECT` statement).
+
+---
+
+### 🔹 **More Complex Example:**
+
+Let’s create a stored procedure for updating a product’s stock quantity. It takes both input and output parameters.
+
+```sql
+CREATE PROCEDURE UpdateProductStock
+    @ProductID INT,                -- Input: Product ID
+    @QuantityToAdd INT,            -- Input: Quantity to add to stock
+    @NewStockLevel INT OUTPUT      -- Output: New stock level after update
+AS
+BEGIN
+    -- Declare a variable to store the current stock level
+    DECLARE @CurrentStockLevel INT;
+
+    -- Get the current stock level from the database
+    SELECT @CurrentStockLevel = StockLevel
+    FROM Products
+    WHERE ProductID = @ProductID;
+
+    -- Update the stock level by adding the quantity
+    SET @NewStockLevel = @CurrentStockLevel + @QuantityToAdd;
+
+    -- Update the stock level in the database
+    UPDATE Products
+    SET StockLevel = @NewStockLevel
+    WHERE ProductID = @ProductID;
+
+    -- Optionally, you can log this operation, send notifications, etc.
+END
+```
+
+#### **Calling the Stored Procedure with Output:**
+
+```sql
+DECLARE @UpdatedStockLevel INT;  -- Declare a variable for the output
+
+-- Execute the stored procedure with input parameters, and capture the output
+EXEC UpdateProductStock
+    @ProductID = 101,               -- Input: Product ID
+    @QuantityToAdd = 50,            -- Input: Quantity to add
+    @NewStockLevel = @UpdatedStockLevel OUTPUT;  -- Output: New stock level
+
+-- After execution, you can check the new stock level
+SELECT @UpdatedStockLevel AS UpdatedStock;
+```
+
+---
+
+### Key Points:
+
+* **Input Parameters**: Values are passed into the stored procedure.
+* **Output Parameters**: Values are returned from the stored procedure to the caller.
+* The **`OUTPUT` keyword** is used to indicate which parameters will return values.
+
+---
+
+### 🔹 **Handling Multiple Output Parameters**
+
+You can also have multiple output parameters in a single stored procedure.
+
+#### **Example with Multiple Output Parameters:**
+
+```sql
+CREATE PROCEDURE CalculateOrderDetails
+    @OrderID INT,                   -- Input Parameter
+    @TotalAmount DECIMAL(10, 2) OUTPUT,  -- Output Parameter
+    @DiscountAmount DECIMAL(10, 2) OUTPUT  -- Output Parameter
+AS
+BEGIN
+    -- Logic to calculate total amount and discount
+    SELECT @TotalAmount = SUM(Amount) FROM OrderDetails WHERE OrderID = @OrderID;
+    SET @DiscountAmount = @TotalAmount * 0.1;  -- Assume a 10% discount
+
+    -- Output both calculated values
+END
+```
+
+#### **Calling the Procedure with Multiple Outputs:**
+
+```sql
+DECLARE @OrderTotal DECIMAL(10, 2), @OrderDiscount DECIMAL(10, 2);
+
+-- Execute stored procedure and capture multiple outputs
+EXEC CalculateOrderDetails
+    @OrderID = 12345,
+    @TotalAmount = @OrderTotal OUTPUT,
+    @DiscountAmount = @OrderDiscount OUTPUT;
+
+-- Display the results
+SELECT @OrderTotal AS TotalAmount, @OrderDiscount AS DiscountAmount;
+```
+
+---
+
+### Summary:
+
+* **Input Parameters** are used to pass data into the stored procedure.
+* **Output Parameters** are used to return data from the stored procedure.
+* Always use the **`OUTPUT` keyword** when defining output parameters and when calling the procedure to capture the output.
+
+---
+
+This structure can be adapted and extended for various use cases in your applications, like managing user accounts, handling transactions, or performing calculations.
