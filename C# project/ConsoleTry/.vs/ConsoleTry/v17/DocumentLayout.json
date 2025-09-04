@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\Desktop\\dotnet\\ConsoleTry\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CC0690F4-F7DD-4359-9AE1-519AC1F741FA}|..\\EnumConstDynamic\\EnumConstDynamic.csproj|c:\\users\\hp\\desktop\\dotnet\\enumconstdynamic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B767E40-D92D-4CC8-B490-EE3B974D462D}|..\\LinqProjects\\LinqProjects.csproj|c:\\users\\hp\\desktop\\dotnet\\linqprojects\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A39C4FAC-0CEE-4F3B-A81A-0D9612B2C338}|..\\IoProcessing\\IoProcessing.csproj|c:\\users\\hp\\desktop\\dotnet\\ioprocessing\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9B21564-8636-4F02-B8FA-4269F071D915}|..\\ThreadsAndTasks\\ThreadsAndTasks.csproj|c:\\users\\hp\\desktop\\dotnet\\threadsandtasks\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0DD8C4A-2E62-49CB-900A-B1796F94EEA0}|..\\Collections_Arrays_Arraylist\\Collections_Arrays_Arraylist.csproj|c:\\users\\hp\\desktop\\dotnet\\collections_arrays_arraylist\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20E2D2B9-8F2E-4BC4-9F8B-F50A75520276}|..\\ValueTypeReferenceType\\ValueTypeReferenceType.csproj|c:\\users\\hp\\desktop\\dotnet\\valuetypereferencetype\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09F66D4A-C75E-408F-94E7-8FA4161C0C1A}|DatatypeCasting.csproj|c:\\users\\hp\\desktop\\dotnet\\consoletry\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09F66D4A-C75E-408F-94E7-8FA4161C0C1A}|DatatypeCasting.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\EnumConstDynamic\\Program.cs",
+              "RelativeDocumentMoniker": "..\\EnumConstDynamic\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\EnumConstDynamic\\Program.cs*",
+              "RelativeToolTip": "..\\EnumConstDynamic\\Program.cs*",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwB0AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T16:44:01.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\LinqProjects\\Program.cs",
+              "RelativeDocumentMoniker": "..\\LinqProjects\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\LinqProjects\\Program.cs",
+              "RelativeToolTip": "..\\LinqProjects\\Program.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAywCgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T15:18:55.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\IoProcessing\\Program.cs",
+              "RelativeDocumentMoniker": "..\\IoProcessing\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\IoProcessing\\Program.cs",
+              "RelativeToolTip": "..\\IoProcessing\\Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwA8AAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T15:39:57.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\ThreadsAndTasks\\Program.cs",
+              "RelativeDocumentMoniker": "..\\ThreadsAndTasks\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\ThreadsAndTasks\\Program.cs",
+              "RelativeToolTip": "..\\ThreadsAndTasks\\Program.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAywCcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T15:18:15.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\Collections_Arrays_Arraylist\\Program.cs",
+              "RelativeDocumentMoniker": "..\\Collections_Arrays_Arraylist\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\Collections_Arrays_Arraylist\\Program.cs",
+              "RelativeToolTip": "..\\Collections_Arrays_Arraylist\\Program.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAywDEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T15:03:00.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\ValueTypeReferenceType\\Program.cs",
+              "RelativeDocumentMoniker": "..\\ValueTypeReferenceType\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\ValueTypeReferenceType\\Program.cs",
+              "RelativeToolTip": "..\\ValueTypeReferenceType\\Program.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwBsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-17T15:47:54.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\dotnet\\ConsoleTry\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\dotnet\\ConsoleTry\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAkwBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T12:55:39.06Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
