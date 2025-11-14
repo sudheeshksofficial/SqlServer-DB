@@ -1,15 +1,15 @@
-Qustpond
-
+C# concepts
+--------------------------------------------------------------------------------------------------------------------------------
 --bin/Debug/application_name
 final set of dll complete code with exe file
 final assembly deployed as application
 
 --obj
-each changes the compilation data stored as dlls 
+each changes the compilation data stored as dlls
 each class different dll's maintained which helps application to run specific project inside solution.when multiple projects present in solution
-
+---------------------------------------------------------------------------------------------------------------------------------
 --CTS
-cts will make sure when project contains multiple languages like c#.F#,vb then it 
+cts will make sure when project contains multiple languages like c#.F#,vb then it
 will make the jit to combile the code to same machine level code when we specify datatype on different program different way
 hence multi language support achieved on .net
 
@@ -18,29 +18,25 @@ hence multi language support achieved on .net
 cls take care of common rules on specific programming language like naming convensions and all
 if user violted it means it will not make the application to run without warning
 
-Casting
+-----------------------------------------------------------------------------------------------------------------------------
 
-            double temp1 = intnumbers;
-            Console.WriteLine("****** type casting implicit ******" + temp1);
+OOPS
 
-            int temp2 = (int)doublenumber;
-            Console.WriteLine("****** type casting explicit ******" +temp2);
+class		-	blueprint which encapsulate properties/methods
+objects 	-	used to create usable version of class
+functions	-	all methods are functions but static methods are specifically mentioned as functions as not related to object
+methods	-	all methods/functions related to class or can be invoked by creating object of that class is method
+Variable	-	A temporary data holder declared inside a method, used only within that method.
+Field		-	A class-level variable that holds data for an object or class.
+Property	-	A class member that provides controlled access to fields using get and set. eg : public string Name { get; set; }
+Constructor - 	Constructor is a special method with no return type used for object creation and assign default values before object 			assign values
 
-----------------------------------------------------------------------------------------------------------------
 
-class -  blueprint
-functions - all methods are functions but static methods are specifically mentioned as functions as not related to object
-methods - all methods/functions related to class or can be invoked by creating object of that class is method
+--------------------------------------------------------------------------------------------------------------------------------------
 
-Variable: A temporary data holder declared inside a method, used only within that method.
-
-Field: A class-level variable that holds data for an object or class.
-
-Property: A class member that provides controlled access to fields using get and set. eg : public string Name { get; set; }
-
-Value type (stack storage) 
+Value type (stack storage)
 int i = j;
-Reference type
+Reference type(Heap Storage)
 Class obj1 = new Class();
 obj1 = 2323;
 Class obj2 = new Class();
@@ -51,18 +47,36 @@ so now obj1 also 987 as when we mention obj2 = obj1 we are passing memory adders
 What happened here is in stack obj1,obj2 may have different pointer address but on heap memory address of both will be same here
 Reference type values data are stored on heap hence one change might affect both.
 
+
+Casting
+
+            double temp1 = intnumbers;
+            Console.WriteLine("****** type casting implicit ******" + temp1);
+
+            int temp2 = (int)doublenumber;
+            Console.WriteLine("****** type casting explicit ******" +temp2);
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
 struct is same as class but its value type.
 
+new Books { ... }  ----> assign object values
 
----------------------------------------------------------------------------------------------------
+new Books(...) --> can assign using constructor
+
+new List<>{ nameslist }	Collection initializer syntax — valid if nameslist is an element	✅ (adds one element)
+new List<>(nameslist)	Uses constructor to copy another list or collection	✅ (copies all elements)
+
+
+---
 
 --STACK is ram type memory where value type data is stored and will remove from memory at end of the scope of the variable {}
 --HEAP is memory space where reference type values are being stored and these values wont erase after the variable scope.
 --Garbage Collector used here to remove the data from heap.
- So if pointer reference of data on heap is not present on stack then garbage collector will remove that data.
- 
- 
----------------------------------------------------------------------------------------------------
+ So if pointer reference of data on heap is not present on stack then garbage collector will remove that data.
+ 
+ 
+---
 
 Array
 
@@ -73,20 +87,20 @@ int[] array = new int[5] {1,2,3,4,5};
 can add using array[0] = 67;
 
 
----------------------------------------------------------------------------------------------------
+---
 import system.collections
 
 ArrayList
-multi data types allowed 
+multi data types allowed
 
 ArrayList li = new ArrayList();
 li.Add(34);
 li.Add("sru");
 
-here 34,sru are taken as object to the arraylist hence boxing happening here from int/string to object 
+here 34,sru are taken as object to the arraylist hence boxing happening here from int/string to object
 so arraylist performance is low as every input converted to object
 
----------------------------------------------------------------------------------------------------
+---
 generics collections
 
 import System.Collections.Generic
@@ -98,7 +112,7 @@ List<string> userDetails = new List<string>();
 userDetails.Add("raja");
 
 
-----------
+---
 
 Thread (Thread used to implement parellelism in cpu each core do each work)
 
@@ -111,7 +125,7 @@ here Join used to keep t1 alive if its background thread. CLR kills the backgrou
 Main is the main thread here and threads created with new thread is Foreground threads those will run as normal
 But threads created with threadpool/Task base threads area background and needs Join to keep it alive else main only execute without thread content(t1.IsBackground = true;)
 
---------
+---
 
 Task Parallet Library and threads
 
@@ -119,15 +133,15 @@ Task t = new Task(T)
 Task.Delay(1000);
 async and await keys not create threads it consider as single thread and it implement asynchronism
 
-async and await 
+async and await
 
 public async static void Function3()
 {
-    for(int i = 0;  i < 100; i++)
-    {
-        await Task.Delay(1000);
-        Console.WriteLine("function 3 "+i);
-    }
+    for(int i = 0;  i < 100; i++)
+    {
+        await Task.Delay(1000);
+        Console.WriteLine("function 3 "+i);
+    }
 }
 
 Note: I/o wait or http request or web application gui change use async and await
@@ -148,36 +162,36 @@ Console.WriteLine("and the file count is  : "+Directory.GetFiles(path2).Length);
 
 
 
----------------------
+---
 
 
 Linq    ------> Language integrated query
 
- LINQ Method Syntax 
+ LINQ Method Syntax
 
 custlist
-    .Where(cust => cust.Country == "India")
-    .ToList()
-    .ForEach(cust => Console.WriteLine(...));
-	
+    .Where(cust => cust.Country == "India")
+    .ToList()
+    .ForEach(cust => Console.WriteLine(...));
+ 
 
 LINQ Query Syntax
 
 
 
 var item = (from custitems in custlist
-             where custitems.Country == "India"
-             select custitems).ToList<Customer>();
-			 
-			 
-Traditional foreach loop			 
-			 
+             where custitems.Country == "India"
+             select custitems).ToList<Customer>();
+ 
+ 
+Traditional foreach loop
+ 
 foreach (Customer customer in item)
 {
-    if (customer.Country == "India")
-    {
-        Console.WriteLine(...);
-    }
+    if (customer.Country == "India")
+    {
+        Console.WriteLine(...);
+    }
 }
 
 
@@ -186,40 +200,40 @@ Enums
 here rather than using numbers like case 2342252: we used case BankIFSC.Perambur: hence we are not hardcoding values
 Group of constants are mentioned in form of Enums
 
-           const double PiValue = 22.3; //reassign not allowed
+           const double PiValue = 22.3; //reassign not allowed
 
-           //When list of constants required to be used use enums
+           //When list of constants required to be used use enums
 
-           int number = int.Parse(Console.ReadLine());
+           int number = int.Parse(Console.ReadLine());
 
-           BankIFSC inputValue = (BankIFSC)number;
+           BankIFSC inputValue = (BankIFSC)number;
 
-           switch (inputValue)
-           {
-               case BankIFSC.OtteriBranch:
-                   Console.WriteLine("welcome to otteri branch");
-                   break;
-               case BankIFSC.Purasaiwalkam:
-                   Console.WriteLine("welcome to Purasawalkam branch");
-                   break;
-               case BankIFSC.Perambur:
-                   Console.WriteLine("welcome to Perambur branch");
-                   break;
-               case BankIFSC.Central:
-                   Console.WriteLine("welcome to central branch");
-                   break;
-               default:
-                   Console.WriteLine("not welcome to  branch");
-                   break;
-           }
+           switch (inputValue)
+           {
+               case BankIFSC.OtteriBranch:
+                   Console.WriteLine("welcome to otteri branch");
+                   break;
+               case BankIFSC.Purasaiwalkam:
+                   Console.WriteLine("welcome to Purasawalkam branch");
+                   break;
+               case BankIFSC.Perambur:
+                   Console.WriteLine("welcome to Perambur branch");
+                   break;
+               case BankIFSC.Central:
+                   Console.WriteLine("welcome to central branch");
+                   break;
+               default:
+                   Console.WriteLine("not welcome to  branch");
+                   break;
+           }
 
 
-       }
+       }
 
-       enum BankIFSC
-       {
-           OtteriBranch = 0000927,
-           Purasaiwalkam = 000982,
-           Perambur = 2353252,
-           Central = 3454354
-       }
+       enum BankIFSC
+       {
+           OtteriBranch = 0000927,
+           Purasaiwalkam = 000982,
+           Perambur = 2353252,
+           Central = 3454354
+       }
