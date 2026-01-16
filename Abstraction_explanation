@@ -1,0 +1,145 @@
+Let me show you a complete, realistic ASP.NET Web API example that demonstrates why abstraction is useful, end-to-end.
+
+I’ll keep it simple, but real-world structured, exactly how interviewers expect.
+
+✅ Example: Bank Web API using Abstraction
+
+We’ll build:
+
+Account abstraction
+
+Multiple account types
+
+Factory (creation isolated)
+
+Service (business logic)
+
+Controller (API)
+
+1️⃣ Abstraction (Contract)
+Account.cs
+public abstract class Account
+{
+    public string AccountNumber { get; set; }
+
+    public abstract decimal CalculateInterest();
+}
+
+
+👉 This is the contract
+👉 High-level code depends on this
+
+2️⃣ Concrete Implementations (Low-level code)
+SavingsAccount.cs
+public class SavingsAccount : Account
+{
+    public override decimal CalculateInterest()
+    {
+        return 1000 * 0.04m;
+    }
+}
+
+CurrentAccount.cs
+public class CurrentAccount : Account
+{
+    public override decimal CalculateInterest()
+    {
+        return 1000 * 0.02m;
+    }
+}
+
+3️⃣ Factory (Object Creation Isolated)
+AccountFactory.cs
+public static class AccountFactory
+{
+    public static Account Create(string accountType)
+    {
+        return accountType switch
+        {
+            "Savings" => new SavingsAccount(),
+            "Current" => new CurrentAccount(),
+            _ => throw new ArgumentException("Invalid account type")
+        };
+    }
+}
+
+
+👉 Only this class knows concrete types
+
+4️⃣ Service Layer (High-level Business Logic)
+InterestService.cs
+public class InterestService
+{
+    public decimal CalculateInterest(Account account)
+    {
+        return account.CalculateInterest();
+    }
+}
+
+
+👉 Service depends only on abstraction
+
+5️⃣ Web API Controller (Outer / High-level Code)
+AccountsController.cs
+[ApiController]
+[Route("api/accounts")]
+public class AccountsController : ControllerBase
+{
+    private readonly InterestService _interestService;
+
+    public AccountsController(InterestService interestService)
+    {
+        _interestService = interestService;
+    }
+
+    [HttpGet("interest")]
+    public IActionResult GetInterest(string accountType)
+    {
+        Account account = AccountFactory.Create(accountType);
+
+        var interest = _interestService.CalculateInterest(account);
+
+        return Ok(new
+        {
+            AccountType = accountType,
+            Interest = interest
+        });
+    }
+}
+
+6️⃣ Program.cs (Minimal Setup)
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddScoped<InterestService>();
+
+var app = builder.Build();
+
+app.MapControllers();
+app.Run();
+
+🔥 WHY this design matters (this is the payoff)
+Add a new account type tomorrow?
+public class FixedDepositAccount : Account
+{
+    public override decimal CalculateInterest()
+    {
+        return 1000 * 0.06m;
+    }
+}
+
+
+Only change:
+
+"Fixed" => new FixedDepositAccount()
+
+
+✅ No controller change
+✅ No service change
+✅ No breaking code
+
+🧠 Key interview takeaway
+
+
+
+Explain how this maps to Clean A
